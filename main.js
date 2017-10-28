@@ -56,19 +56,34 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 									<p class="worker-email">${myWorker.results[i].email}</p>
 									<p class="worker-city">${myWorker.results[i].location.city}</p>
 								</div>
+
 								<div class="employee-contact">
 									<p class="phone-number">${myWorker.results[i].cell}</p>
 									<p class="address">${myWorker.results[i].location.street},</p>
 									<p class="address">${myWorker.results[i].location.state}</p>
 									<p class="birthdate">Birthday: ${myWorker.results[i].dob}</p>
+									<span class="next" id="next">&#8250;</span>
+									<span class="previous" id="previous">&#8249;</span>
 								</div>
 								`
 								document.getElementById('modalWrapper').innerHTML = workerModal;
 								
 								document.getElementById('closeModal').addEventListener('click', (closeModal));
 								
+								const modal = document.getElementById('modal'); 
+								
+								window.onclick = function(e) {
+									if (e.target == modal) {
+										modal.style.display = 'none';
+									}
+								}
+								
+								document.getElementById('next').addEventListener('click', (closeModal));
+								
+								document.getElementById('previous').addEventListener('click', (closeModal));
+								
 								function closeModal() {
-									console.log('close clicked');
+									document.getElementById('modal').style.display ='none';;
 								}
 								
 							};
