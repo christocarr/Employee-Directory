@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 			
 					for (i = 0; i < Object.keys(myWorker.results).length; i++) {
 						
-						 myWorkerCard += `
+						myWorkerCard += `
 							<div class="container" id="container${[i]}">
 								<img class="employee-image" src="${myWorker.results[i].picture.large}" alt="Employee Image">
 								<div class="employee-details">
@@ -27,12 +27,10 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 									<p class="worker-city">${myWorker.results[i].location.city}</p>
 								</div>
 							</div>
-							` 
+						` 
 						}
 					
 						document.getElementById('wrapper').innerHTML = myWorkerCard;
-						console.log(myWorkerCard);
-						console.log(myWorker);
 						
 			//Modal Functionality
 					
@@ -46,8 +44,10 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 						
 						function openModal(i) {
 							return function () {
+								document.getElementById('modal').style.display ='block';
+								
 								workerModal = `
-								<div class="modal-container" id="container${[i]}">
+								<div class="modal-content" id="container${[i]}">
 									<span class="close-modal" id="closeModal">&times;</span>
 									<img class="employee-image" src="${myWorker.results[i].picture.large}" alt="Employee Image">
 								<div class="employee-details">
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 								</div>
 								<div class="employee-contact">
 									<p class="phone-number">${myWorker.results[i].cell}</p>
-									<p class="address">${myWorker.results[i].location.street}</p>
+									<p class="address">${myWorker.results[i].location.street},</p>
 									<p class="address">${myWorker.results[i].location.state}</p>
 									<p class="birthdate">Birthday: ${myWorker.results[i].dob}</p>
 								</div>
