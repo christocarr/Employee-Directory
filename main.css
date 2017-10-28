@@ -76,6 +76,36 @@ h1 {
 	color: #6d6c6c;
 }
 
+/*------Modal Styles------*/
+
+.modal {
+	
+}
+
+.modal-container {
+	display: block;
+	position: absolute;
+	z-index: 101;
+	height: auto;
+	width: 40em;
+	background-color: aliceblue;
+}
+
+.modal-container p {
+	text-align: center;
+}
+
+.modal-container .employee-details {
+	text-align: center;
+}
+
+.modal-container img {
+	margin: auto;
+}
+
+
+/*------Medial Queries------*/
+
 @media only screen and (min-width: 768px) {
   
 	#wrapper {
