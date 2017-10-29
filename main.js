@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 					//select all employee cards
 					 selectedWorkers = document.getElementsByClassName('container');
 				
-					//add click event listner to each employee card	
-					 for(i = 0; i < selectedWorkers.length; i++) {
+					//add click event listner to each employee card
+						for(i = 0; i < selectedWorkers.length; i++) {
 						 selectedWorkers[i].addEventListener('click', openModal(i));
-					 }
+					 	}
 						
 						function openModal(i) {
 							return function () {
@@ -70,24 +70,32 @@ document.addEventListener('DOMContentLoaded', loadWorkers);
 								
 								document.getElementById('closeModal').addEventListener('click', (closeModal));
 								
+					//next and previous button functionality			
+								const next = document.getElementById('next');
+								
+								const previous = document.getElementById('previous');
+								
+								next.addEventListener('click', nextWorker);
+								
+								function nextWorker() {
+									openModal(i++);
+								}
+								
+							};
+						}
+						
+					//close modal functionality		
+								
 								const modal = document.getElementById('modal'); 
 								
 								window.onclick = function(e) {
 									if (e.target == modal) {
 										modal.style.display = 'none';
 									}
-								}
-								
-								document.getElementById('next').addEventListener('click', (closeModal));
-								
-								document.getElementById('previous').addEventListener('click', (closeModal));
-								
+								}					
 								function closeModal() {
-									document.getElementById('modal').style.display ='none';;
+									document.getElementById('modal').style.display ='none';
 								}
-								
-							};
-						}
 				
 				}
 					
